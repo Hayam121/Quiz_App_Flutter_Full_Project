@@ -10,12 +10,11 @@ Widget addQuestionsButton(context) {
   return Container(
       alignment: Alignment.center,
       child: TextButton(
-      child: const Icon(Icons.add, color: Colors.white, size: 35),
+        child: const Icon(Icons.add, color: Colors.white, size: 35),
         onPressed: () {
           FocusScope.of(context).requestFocus(FocusNode());
           dialogBuilder(context);
         },
-        
       ));
 }
 
