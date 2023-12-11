@@ -78,16 +78,11 @@ Widget cardWidgetOfList(index) {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Visibility(
-                      visible: providerValue.flagOption3,
-                      child: options("C.) $opt3", context)
-                      ),
-                      Visibility(
-                      visible: providerValue.flagOption4,
-                      child: options("D.) $opt4", context)
-                      ),
+                      "$opt3"==""? options("C.) $opt3", context):Container(),
+                      "$opt4"==""? options("D.) $opt4", context):Container()
                     ],
                   ),
+                  
                 ],
               ),
             ),
@@ -96,6 +91,20 @@ Widget cardWidgetOfList(index) {
         );
       },
     )),
+  );
+}
+
+Widget answerContainer(value, context) {
+  return Expanded(
+    child: Container(
+      margin: EdgeInsets.only(top: setSize(context, 10)),
+      child: Text(
+        value,
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.visible,
+        style: TextStyle(fontSize: setSize(context, 16)),
+      ),
+    ),
   );
 }
 

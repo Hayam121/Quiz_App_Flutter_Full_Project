@@ -11,8 +11,16 @@ class CreateQuizProvider extends ChangeNotifier {
   String option2 = "";
   String option3 = "";
   String option4 = "";
-  bool flagOption3 = false;
-  bool flagOption4 = false;
+  // bool flagOption3 = false;
+  // bool flagOption4 = false;
+
+  bool acceptFourAnswers = true; // Flag to determine whether 4 answers are accepted
+
+  void setAcceptFourAnswers(bool accept) {
+    acceptFourAnswers = accept;
+    notifyListeners();
+  }
+
 
   List<Map<String, String>> list = [];
 
@@ -43,13 +51,13 @@ class CreateQuizProvider extends ChangeNotifier {
 
   void getOption3(String opt3) {
     option3 = opt3;
-    flagOption3 = opt3.isNotEmpty;
+    // flagOption3 = opt3.isNotEmpty;
     notifyListeners();
   }
 
   void getOption4(String opt4) {
     option4 = opt4;
-    flagOption4 = opt4.isNotEmpty;
+    // flagOption4 = opt4.isNotEmpty;
     notifyListeners();
   }
 
@@ -73,8 +81,8 @@ class CreateQuizProvider extends ChangeNotifier {
       "Question": questionInfo,
       "Answer1": option1,
       "Answer2": option2,
-      "Answer3": option3,
-      "Answer4": option4
+      "Answer3": acceptFourAnswers ? option3 : "",
+      "Answer4": acceptFourAnswers ? option4 : "",
     };
     list.add(value);
     // Clear the values once added to list.......................
@@ -83,6 +91,7 @@ class CreateQuizProvider extends ChangeNotifier {
     option2 = "";
     option3 = "";
     option4 = "";
+    
     notifyListeners();
   }
 
