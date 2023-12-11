@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../providers/createQuizProvider.dart';
 import '../../reusableWidgets/Responsive.dart';
-import '../../reusableWidgets/createColor.dart';
-import '../../providers/createQuizProvider.dart';
 
 String ques = "";
 String opt1 = "";
@@ -18,20 +16,21 @@ Widget listViewQuestions(context, providerValue) {
       providerValue.list.length.toString() == "null") {
     return Expanded(
       child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: screenHeight(context) < 500 ? 0 : 50),
-          alignment: Alignment.center,
-          child: Text(
-            "\n\nAdd Questions to Quiz from '+' icon on Upper Right Corner.\n\n",
-            style: TextStyle(
-                fontSize: setSize(context, 24),
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 0, 0),
-                overflow: TextOverflow.visible,
-                wordSpacing: 2,
-                letterSpacing: 0.4),
-            textAlign: TextAlign.center,
-          )),
+        padding: EdgeInsets.symmetric(
+            vertical: screenHeight(context) < 500 ? 0 : 50),
+        alignment: Alignment.center,
+        child: Text(
+          "\n\nAdd Questions to Quiz from '+' icon on Upper Right Corner.\n\n",
+          style: TextStyle(
+              fontSize: setSize(context, 24),
+              fontWeight: FontWeight.bold,
+              color: const Color.fromARGB(255, 0, 0, 0),
+              overflow: TextOverflow.visible,
+              wordSpacing: 2,
+              letterSpacing: 0.4),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   } else {
     return Expanded(
@@ -78,11 +77,14 @@ Widget cardWidgetOfList(index) {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      "$opt3"==""? options("C.) $opt3", context):Container(),
-                      "$opt4"==""? options("D.) $opt4", context):Container()
+                      (opt3 == "")
+                          ? Container()
+                          : options("C.) $opt3", context),
+                      (opt4 == "")
+                          ? Container()
+                          : options("D.) $opt4", context),
                     ],
                   ),
-                  
                 ],
               ),
             ),
@@ -171,7 +173,8 @@ Container questionValue(context) {
 Widget deleteQuestionFromList(providerValue, index) {
   return InkWell(
     child: Container(
-        padding: EdgeInsets.all(20), child: const Icon(FontAwesomeIcons.trash)),
+        padding: const EdgeInsets.all(20),
+        child: const Icon(FontAwesomeIcons.trash)),
     onTap: () {
       providerValue.deleteData(index);
     },

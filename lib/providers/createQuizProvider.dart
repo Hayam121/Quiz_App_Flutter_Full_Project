@@ -14,13 +14,13 @@ class CreateQuizProvider extends ChangeNotifier {
   // bool flagOption3 = false;
   // bool flagOption4 = false;
 
-  bool acceptFourAnswers = true; // Flag to determine whether 4 answers are accepted
+  bool acceptFourAnswers =
+      true; // Flag to determine whether 4 answers are accepted
 
   void setAcceptFourAnswers(bool accept) {
     acceptFourAnswers = accept;
     notifyListeners();
   }
-
 
   List<Map<String, String>> list = [];
 
@@ -61,7 +61,6 @@ class CreateQuizProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
   void getQuizDifficulty(difficultyValue) {
     if (difficultyValue == 0) {
       radioForQuizDifficulty = 0;
@@ -85,13 +84,12 @@ class CreateQuizProvider extends ChangeNotifier {
       "Answer4": acceptFourAnswers ? option4 : "",
     };
     list.add(value);
-    // Clear the values once added to list.......................
     questionInfo = "";
     option1 = "";
     option2 = "";
     option3 = "";
     option4 = "";
-    
+
     notifyListeners();
   }
 

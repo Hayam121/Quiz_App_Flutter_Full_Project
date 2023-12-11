@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_project/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -15,28 +16,14 @@ import 'reusableWidgets/profileSection/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
-  /*if (kIsWeb) {
-    await Firebase.initializeApp(
-        options: const FirebaseOptions(
-            apiKey: "AIzaSyC9eJ9frWsX3ntu57LTUMoc7a0RXG7Xjqg",
-            authDomain: "project-41bc9.firebaseapp.com",
-            projectId: "project-41bc9",
-            storageBucket: "project-41bc9.appspot.com",
-            messagingSenderId: "575325391913",
-            appId: "1:575325391913:web:2dbaee145ef2b25553a038",
-            measurementId: "G-2E1W6WMJWZ"));
-  }*/
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -52,7 +39,6 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Champ Quizz',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
