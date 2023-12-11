@@ -16,9 +16,7 @@ Widget actionsOfAlertDialogBox(context, providerValue) {
               onPressed: () {
                 if (providerValue.questionInfo != "" &&
                     providerValue.option1 != "" &&
-                    providerValue.option2 != "" ||
-                    providerValue.option3 != "" ||
-                    providerValue.option4 != "") {
+                    providerValue.option2 != "" ) {
                   FocusScope.of(context).requestFocus(FocusNode());
                   providerValue.setDataToList();
                   Navigator.pop(context);
