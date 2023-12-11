@@ -85,10 +85,13 @@ Widget floatingButton(context) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.add),
-              Text("Create",
-                  style: TextStyle(
-                      fontSize: setSize(context, 18),
-                      fontWeight: FontWeight.w600)),
+              Text(
+                "Create",
+                style: TextStyle(
+                  fontSize: setSize(context, 18),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
