@@ -6,19 +6,19 @@ import 'alertDialogActions.dart';
 import 'alertDialogContent.dart';
 
 // +AddQuestions button in Main screen
-Widget addQuestionsButton(context) {
+Widget addQuestionsButton(context) { //! + button
   return Container(
       alignment: Alignment.center,
       child: TextButton(
         child: const Icon(Icons.add, color: Colors.white, size: 35),
         onPressed: () {
-          FocusScope.of(context).requestFocus(FocusNode());
           dialogBuilder(context);
         },
-      ));
+      ))
+      ;
 }
 
-Future dialogBuilder(context) {
+Future dialogBuilder(context) {//! when click on  + button
   return showDialog(
     context: context,
     builder: (context) {
@@ -31,7 +31,7 @@ Future dialogBuilder(context) {
   );
 }
 
-Widget alertDialogBoxAddQuestions(context, providerValue) {
+Widget alertDialogBoxAddQuestions(context, providerValue) { //! show question
   return Center(
     child: SingleChildScrollView(
       scrollDirection: Axis.vertical,
