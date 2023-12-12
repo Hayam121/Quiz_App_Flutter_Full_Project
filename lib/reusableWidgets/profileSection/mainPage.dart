@@ -42,7 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     : screenWidth(context) / 2,
                 child: Column(
                   children: [
-                    userImageContent(context, providerValue),
+                    //userImageContent(context),
                     userNameContent(context, providerValue),
                     containerSeperator(context),
                     userEmailContent(context),

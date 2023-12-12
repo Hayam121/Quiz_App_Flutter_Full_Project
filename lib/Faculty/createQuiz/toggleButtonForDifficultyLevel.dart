@@ -35,7 +35,6 @@ Widget toggleButtonEasy(providerValue, context) {
         value: 0,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {
-          FocusManager.instance.primaryFocus?.unfocus();
           providerValue.getQuizDifficulty(changedValue);
         },
       ),
@@ -52,7 +51,6 @@ Widget toggleButtonMedium(providerValue, context) {
         value: 1,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {
-          FocusManager.instance.primaryFocus?.unfocus();
           providerValue.getQuizDifficulty(changedValue);
         },
       ),
@@ -69,7 +67,6 @@ Widget toggleButtonDifficult(providerValue, context) {
         value: 2,
         groupValue: providerValue.radioForQuizDifficulty,
         onChanged: (changedValue) {
-          FocusManager.instance.primaryFocus?.unfocus();
           providerValue.getQuizDifficulty(changedValue);
         },
       ),
