@@ -106,4 +106,12 @@ class CreateQuizProvider extends ChangeNotifier {
     stringForQuizDifficulty = "Easy";
     notifyListeners();
   }
+
+  void clearData() {
+    list.clear();
+    quizTitle = "";
+    quizDesc = "";
+    radioForQuizDifficulty = 0;
+    stringForQuizDifficulty = "Easy";
+  }
 }

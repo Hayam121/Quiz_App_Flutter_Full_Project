@@ -20,6 +20,12 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
+  void initState() {
+    Provider.of<ProfilePageProvider>(context, listen: false).getUserData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarSimple(context, "My Profile"),
@@ -27,16 +33,16 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Container(
           alignment: Alignment.center,
           transformAlignment: Alignment.center,
-          padding: EdgeInsets.all(50),
+          padding: const EdgeInsets.all(50),
           child: Consumer<ProfilePageProvider>(
             builder: (context, providerValue, child) {
-              return Container(
+              return SizedBox(
                 width: ResponsiveWidget.isSmallScreen(context)
                     ? screenWidth(context)
                     : screenWidth(context) / 2,
                 child: Column(
                   children: [
-                    userImageContent(context),
+                    userImageContent(context, providerValue),
                     userNameContent(context, providerValue),
                     containerSeperator(context),
                     userEmailContent(context),
