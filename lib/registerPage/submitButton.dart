@@ -30,7 +30,6 @@ Widget buttonContent(providerValue, context) {
 
           setDataToFirebase(providerValue,
               context); // Set data to Firebase See Below.............
-
         } else {
           long_flutter_toast("Please fill out all fields to Continue");
         }
@@ -62,7 +61,9 @@ Future<void> setDataToFirebase(providerValue, context) async {
       "experience": "",
       "qualification": "",
       "contact": "",
-      "attempt" : 0,
+      "attempt": 0,
+      "image":
+          "https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&ga=GA1.2.825316313.1674289475&semt=ais",
     };
     // Set user data to collection in Firebase...........
     FirebaseFirestore.instance
@@ -76,7 +77,7 @@ Future<void> setDataToFirebase(providerValue, context) async {
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ));
 
     // Delete Provider value..................

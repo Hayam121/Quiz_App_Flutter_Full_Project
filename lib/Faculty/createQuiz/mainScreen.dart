@@ -18,6 +18,22 @@ class CreateQuiz extends StatefulWidget {
 }
 
 class _CreateQuizState extends State<CreateQuiz> {
+  late CreateQuizProvider _createQuizProvider;
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _createQuizProvider =
+          Provider.of<CreateQuizProvider>(context, listen: false);
+    });
+  }
+
+  @override
+  void dispose() {
+    _createQuizProvider.clearData();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

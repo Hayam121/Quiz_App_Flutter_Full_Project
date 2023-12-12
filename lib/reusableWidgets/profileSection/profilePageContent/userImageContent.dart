@@ -1,34 +1,61 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/constants/helper.dart';
+import 'package:flutter_project/reusableWidgets/profileSection/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
-import '../../Responsive.dart';
-
-// Container for user Image
-Container userImageContent(context) {
-  String? imageUrl = FirebaseAuth.instance.currentUser?.photoURL.toString();
-  if (imageUrl == "null") {
-    return Container(
-      margin: EdgeInsets.only(
-          top: setSize(context, 40), bottom: setSize(context, 7)),
-      child: Image.asset(
-        "assets/images/user_img.png",
-        height: 100,
-        width: 100,
+Widget userImageContent(context, ProfilePageProvider providerValue) {
+  return Stack(
+    children: [
+      ClipOval(
+        child: Material(
+          color: Colors.transparent,
+          child: Ink.image(
+            image:
+                providerValue.imageUrl == null || providerValue.imageUrl == ''
+                    ? const AssetImage("assets/images/user_img.png")
+                    : NetworkImage(providerValue.imageUrl!) as ImageProvider,
+            width: 100.0,
+            height: 100.0,
+            child: InkWell(onTap: () {
+              Helper.getImage(imageSource: ImageSource.gallery).then((value) {
+                providerValue.uploadImage(value);
+              });
+            }),
+          ),
+        ),
       ),
-      
-    );
-    
-  } else {
-    return Container(
-      margin: EdgeInsets.only(
-          top: setSize(context, 40), bottom: setSize(context, 7)),
-      child: Image.network(
-        imageUrl!,
-        height: 100,
-        width: 100,
+      Positioned(
+        bottom: 0,
+        right: 4,
+        child: buildEditIcon(),
       ),
-    );
-  }
+    ],
+  );
 }
 
+Widget buildEditIcon() => buildCircle(
+      color: Colors.white,
+      all: 2,
+      child: buildCircle(
+        color: Colors.blue,
+        all: 5,
+        child: const Icon(
+          Icons.edit,
+          color: Colors.black,
+          size: 18,
+        ),
+      ),
+    );
 
+Widget buildCircle({
+  required Widget child,
+  required double all,
+  required Color color,
+}) =>
+    ClipOval(
+      child: Container(
+        padding: EdgeInsets.all(all),
+        color: color,
+        child: child,
+      ),
+    );
