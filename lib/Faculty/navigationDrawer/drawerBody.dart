@@ -159,3 +159,41 @@ ListTile listTileAbout(context) {
   );
 }
 
+listTilePrivacyPolicy(context) {
+  return ListTile(
+    style: ListTileStyle.drawer,
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading:
+        const Icon(FontAwesomeIcons.userShield, size: 20, color: Colors.black),
+    title: Text(
+      "Privacy Policy",
+      style: TextStyle(
+          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
+    ),
+    onTap: () async {
+      Navigator.pop(context);
+      await launchUrlString(privacyPolicyURL);
+    },
+  );
+}
+
+listTileTerms(context) {
+  return ListTile(
+    style: ListTileStyle.drawer,
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading: const Icon(FontAwesomeIcons.bookOpenReader,
+        size: 20, color: Colors.black),
+    title: Text(
+      "Terms and Conditions",
+      style: TextStyle(
+          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
+    ),
+    onTap: () async {
+      await launchUrlString(termsConditionsURL,
+          webOnlyWindowName: "Terms And Conditions");
+      Navigator.pop(context);
+    },
+  );
+}
+
+
