@@ -16,6 +16,8 @@ Drawer navigationDrawerStudent(context) {
           listTileCheckScore(context),
           listTileProfile(context),
           listTileAbout(context),
+          listTilePrivacyPolicy(context),
+          listTileTerms(context),
        //   listTileShare(context),
         ],
       ),

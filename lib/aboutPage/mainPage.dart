@@ -40,6 +40,8 @@ class AboutPage extends StatelessWidget {
   aboutContainer() {
     return Expanded(
       child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
         children: [
           Container(
             alignment: Alignment.center,
@@ -47,7 +49,7 @@ class AboutPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: const Text(aboutUsContent,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                ),
+                textAlign: TextAlign.justify),
           ),
         ],
       ),

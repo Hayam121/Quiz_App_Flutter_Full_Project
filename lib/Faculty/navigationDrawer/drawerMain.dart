@@ -8,16 +8,20 @@ Drawer navigationDrawer(context) {
   return Drawer(
     width: screenWidth(context) / 1.6,
     elevation: 20,
-    child: Column(
-      children: [
-        drawerHeader(context), // Inside Reusable Widgets Folder
-        // Inside drawerMain of navigationDrawer Folder
-        listTileMyQuiz(context),
-        listTileCreate(context),
-        listTileStudentResult(context),
-        listTileProfile(context),
-        listTileAbout(context),
-      ],
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          drawerHeader(context), // Inside Reusable Widgets Folder
+          // Inside drawerMain of navigationDrawer Folder
+          listTileMyQuiz(context),
+          listTileCreate(context),
+          listTileStudentResult(context),
+          listTileProfile(context),
+          listTileAbout(context),
+          listTilePrivacyPolicy(context),
+          listTileTerms(context),
+        ],
+      ),
     ),
   );
 }

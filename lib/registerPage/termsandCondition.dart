@@ -16,6 +16,7 @@ Widget termsConditions() {
                 TextSpan(
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
+                        launchUrlString(termsConditionsURL);
                       },
                     text: 'Terms & Conditions',
                     style: const TextStyle(
@@ -30,6 +31,7 @@ Widget termsConditions() {
                       TextSpan(
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
+                            launchUrlString(privacyPolicyURL);
                           },
                         text: 'Privacy Policy',
                         style: const TextStyle(

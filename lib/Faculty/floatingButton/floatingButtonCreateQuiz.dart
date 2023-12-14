@@ -9,8 +9,9 @@ Widget floatingButtonCreate(context) {
   return Container(
     decoration: BoxDecoration(
         shape: BoxShape.rectangle,
+        color: Colors.blueGrey,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all( width: 0)),
+        border: Border.all(color: Colors.black, width: 1)),
     width: 100,
     height: 45,
     child: floatingButton(context),
@@ -33,6 +34,50 @@ Widget floatingButton(context) {
               builder: (context) => const CreateQuiz(),
             ),
           );
+          // if (providerValue.experience == "" ||
+          //     providerValue.qualification == "" ||
+          //     providerValue.about == "") {
+          //   showDialog(
+          //     context: context,
+          //     builder: (context) {
+          //       return AlertDialog(
+          //         title: const Text("Alert",
+          //             style: TextStyle(
+          //                 color: Colors.red,
+          //                 fontSize: 25,
+          //                 fontWeight: FontWeight.bold)),
+          //         elevation: 20,
+          //         content: const Text(
+          //             "Kindly Update Profile Section to Create Quiz"),
+          //         actions: [
+          //           TextButton(
+          //               onPressed: () {
+          //                 Navigator.pop(context);
+          //               },
+          //               child: const Text(
+          //                 "Cancel",
+          //                 style: TextStyle(fontSize: 15),
+          //               )),
+          //           TextButton(
+          //               onPressed: () {
+          //                 Navigator.pop(context);
+          //                 Navigator.push(
+          //                     context,
+          //                     MaterialPageRoute(
+          //                       builder: (context) => const ProfilePage(),
+          //                     ));
+          //               },
+          //               child: const Text(
+          //                 "Update",
+          //                 style: TextStyle(fontSize: 15),
+          //               ))
+          //         ],
+          //       );
+          //     },
+          //   );
+          // } else {
+
+          // }
         },
         child: Padding(
           padding: const EdgeInsets.all(5.0),
