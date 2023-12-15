@@ -43,53 +43,12 @@ Widget listTileCreate(context) {
           ),
         ),
         onTap: () async {
-          Navigator.pop(context);
-          await getProfileInfo(providerValue);
-          if (providerValue.experience == "" ||
-              providerValue.qualification == "" ||
-              providerValue.about == "") {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text("Alert",
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold)),
-                  elevation: 20,
-                  content: const Text(
-                      "Kindly Update Profile Section to Create Quiz"),
-                  actions: [
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text(
-                          "Cancel",
-                          style: TextStyle(fontSize: 15),
-                        )),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
-
-                        },
-                        child: const Text(
-                          "Update",
-                          style: TextStyle(fontSize: 15),
-                        ))
-                  ],
-                );
-              },
-            );
-          } else {
-            await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CreateQuiz(),
-                ));
-          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CreateQuiz(),
+            ),
+          );
         },
       );
     },
@@ -159,41 +118,6 @@ ListTile listTileAbout(context) {
   );
 }
 
-listTilePrivacyPolicy(context) {
-  return ListTile(
-    style: ListTileStyle.drawer,
-    contentPadding: const EdgeInsets.only(top: 15, left: 20),
-    leading:
-        const Icon(FontAwesomeIcons.userShield, size: 20, color: Colors.black),
-    title: Text(
-      "Privacy Policy",
-      style: TextStyle(
-          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
-    ),
-    onTap: () async {
-      Navigator.pop(context);
-      await launchUrlString(privacyPolicyURL);
-    },
-  );
-}
 
-listTileTerms(context) {
-  return ListTile(
-    style: ListTileStyle.drawer,
-    contentPadding: const EdgeInsets.only(top: 15, left: 20),
-    leading: const Icon(FontAwesomeIcons.bookOpenReader,
-        size: 20, color: Colors.black),
-    title: Text(
-      "Terms and Conditions",
-      style: TextStyle(
-          fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
-    ),
-    onTap: () async {
-      await launchUrlString(termsConditionsURL,
-          webOnlyWindowName: "Terms And Conditions");
-      Navigator.pop(context);
-    },
-  );
-}
 
 

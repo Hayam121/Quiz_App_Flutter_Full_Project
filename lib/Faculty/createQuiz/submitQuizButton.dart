@@ -16,10 +16,8 @@ Widget submitQuizButton() {
             style: TextStyle(fontSize: setSize(context, 16)),
           ),
           onPressed: () async {
-            // Get email of current logged in user..............................
             String? email = FirebaseAuth.instance.currentUser?.email.toString();
 
-            //Count Docs Size in Collection......................................
             int getDocsCount = await FirebaseFirestore.instance
                 .collection("users")
                 .doc(email)
@@ -29,11 +27,10 @@ Widget submitQuizButton() {
             int i = 0;
             int a = 101;
 
-            // Check the list value, quiz title and Quiz Description if not empty.............
             if (providerValue.list.isNotEmpty &&
                 providerValue.quizTitle != "" &&
                 providerValue.quizDesc != "") {
-              // Set Quiz Description and Quiz Title to the Firebase Database.....................
+             
               await FirebaseFirestore.instance
                   .collection("users")
                   .doc(email)
@@ -54,7 +51,6 @@ Widget submitQuizButton() {
                 "attempt": getDocsCount+1,
               });
 
-              // Set each Element from list to the Firebase Database.....................
               for (var element in providerValue.list) {
                 i++;
                 await FirebaseFirestore.instance
@@ -66,7 +62,7 @@ Widget submitQuizButton() {
                     .doc("$i")
                     .set(element);
               }
-              // Clear the value of list, Quiz Desc and Quiz Title...............
+
               providerValue.clearProviderValue();
               Navigator.pop(context);
             }

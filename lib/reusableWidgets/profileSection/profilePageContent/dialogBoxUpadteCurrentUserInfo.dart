@@ -22,7 +22,7 @@ dialogBoxUpdateCurrentUserInfo(context, userInfo, infoType) {
   );
 }
 
-// Content of Alert Dialog Box..................
+// Content of Alert Dialog Box
 contentOfAlertBox(context, userInfo, infoType) {
   return SizedBox(
       width: screenWidth(context),
@@ -42,7 +42,7 @@ contentOfAlertBox(context, userInfo, infoType) {
       }));
 }
 
-// Button to save changes........................
+// Button to save changes
 buttonForSave(userInfo, infoType) {
   return Consumer<ProfilePageProvider>(
     builder: (context, proValue, child) {

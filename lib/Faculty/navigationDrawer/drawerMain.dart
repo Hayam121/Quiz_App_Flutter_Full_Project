@@ -11,15 +11,12 @@ Drawer navigationDrawer(context) {
     child: SingleChildScrollView(
       child: Column(
         children: [
-          drawerHeader(context), // Inside Reusable Widgets Folder
-          // Inside drawerMain of navigationDrawer Folder
+          drawerHeader(context),
           listTileMyQuiz(context),
           listTileCreate(context),
           listTileStudentResult(context),
           listTileProfile(context),
           listTileAbout(context),
-          listTilePrivacyPolicy(context),
-          listTileTerms(context),
         ],
       ),
     ),

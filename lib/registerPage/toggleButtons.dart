@@ -21,7 +21,7 @@ Widget toggleForStudentFaculty() {
           animationDuration: 400,
           initialLabelIndex: providerValue.radioForStudentFaculty,
           totalSwitches: 2,
-          labels: const ['Student', "Faculty"],
+          labels: const ['Student', "Staff"],
           onToggle: (index) {
             providerValue.changeStudentFacultyValue(index);
           },

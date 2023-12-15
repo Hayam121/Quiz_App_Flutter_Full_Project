@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../reusableWidgets/Responsive.dart';
 import 'alreadyUserLogin.dart';
 import 'submitButton.dart';
-import 'termsandCondition.dart';
 import 'textFields.dart';
 import 'toggleButtons.dart';
 
@@ -40,14 +39,13 @@ class _RegisterState extends State<Register> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          /// See Below.............................
+          /// See Below
           registerText(),
           toggleForStudentFaculty(),
           textFieldName(),
           textFieldEmail(),
           textFieldPassword(),
           buttonSubmit(),
-          termsConditions(),
           alreadyUserLogin(context),
         ],
       ),
