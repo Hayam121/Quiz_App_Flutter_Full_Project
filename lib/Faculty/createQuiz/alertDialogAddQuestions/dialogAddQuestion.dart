@@ -5,7 +5,6 @@ import '../../../providers/createQuizProvider.dart';
 import 'alertDialogActions.dart';
 import 'alertDialogContent.dart';
 
-// +AddQuestions button in Main screen
 Widget addQuestionsButton(context) {
   return Container(
       alignment: Alignment.center,

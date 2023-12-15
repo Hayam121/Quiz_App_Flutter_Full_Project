@@ -36,9 +36,9 @@ Widget teachersAssigned(context) {
       } else {
         // If not null create List View of the following ......................
         final validData = snapshot.data?.docs
-            .where((d) => d['userType'] == "1" && d['about'] != "" &&  d['attempt']> 0).toList();
-
-
+            .where((d) =>
+                d['userType'] == "1" && d['about'] != "" && d['attempt'] > 0)
+            .toList();
 
         return ResponsiveWidget.isSmallScreen(context)
             ? ListView.builder(

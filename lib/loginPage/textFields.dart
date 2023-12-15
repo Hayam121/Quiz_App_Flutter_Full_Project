@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/loginPageProvider.dart';
 
-// Text Field for Email.....................................
+// Text Field for Email
 Widget textFieldEmail() {
   return Padding(
       padding: const EdgeInsets.all(18.0),
@@ -29,12 +29,11 @@ Widget textFieldEmail() {
               },
               autovalidateMode: AutovalidateMode.onUserInteraction,
               style: textStyleLabel());
-
         },
       ));
 }
 
-// Text Field for password.....................................
+// Text Field for password
 Widget textFieldPassword() {
   return Padding(
     padding: const EdgeInsets.all(18.0),
@@ -54,7 +53,7 @@ Widget textFieldPassword() {
   );
 }
 
-// Input Decoration for above TextFormFields.....................
+// Input Decoration for above TextFormFields
 InputDecoration inputTextDecoration(String value) {
   return InputDecoration(
     contentPadding: const EdgeInsets.all(20),
@@ -70,7 +69,7 @@ InputDecoration inputTextDecoration(String value) {
   );
 }
 
-// Border for above TextFormFields...............................
+// Border for above TextFormFields
 OutlineInputBorder textFieldBorder() {
   return OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.white),
@@ -78,7 +77,7 @@ OutlineInputBorder textFieldBorder() {
       gapPadding: 5);
 }
 
-// Text Styling for above TextFormFields.........................
+// Text Styling for above TextFormFields
 TextStyle textStyleLabel() {
   return const TextStyle(color: Colors.white);
 }

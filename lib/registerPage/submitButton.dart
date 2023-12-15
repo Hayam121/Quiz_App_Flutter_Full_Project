@@ -41,19 +41,19 @@ Widget buttonContent(providerValue, context) {
       ));
 }
 
-// Set data to Firebase.......................................
+// Set data to Firebase
 Future<void> setDataToFirebase(providerValue, context) async {
   try {
-    // Create user in Firebase with email and password................
+    // Create user in Firebase with email and password
     UserCredential result = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(
             email: providerValue.email.trim(),
             password: providerValue.password);
 
-    // update display name in Firebase..........................
+    // update display name in Firebase
     result.user?.updateDisplayName(providerValue.name.trim());
 
-    // Map user data ................
+    // Map user data
     Map<String, dynamic> userdata = {
       "name": providerValue.name.trim(),
       "userType": providerValue.radioForStudentFaculty.toString(),
@@ -65,14 +65,14 @@ Future<void> setDataToFirebase(providerValue, context) async {
       "image":
           "https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&ga=GA1.2.825316313.1674289475&semt=ais",
     };
-    // Set user data to collection in Firebase...........
+    // Set user data to collection in Firebase
     FirebaseFirestore.instance
         .collection("users")
         .doc(providerValue.email)
         .set(userdata);
 
     long_flutter_toast("Successfully Registered");
-    // Navigate to Login Page...............
+    // Navigate to Login Page
     Navigator.pop(context);
     Navigator.pushReplacement(
         context,
@@ -80,12 +80,12 @@ Future<void> setDataToFirebase(providerValue, context) async {
           builder: (context) => const LoginPage(),
         ));
 
-    // Delete Provider value..................
+    // Delete Provider value
     providerValue.deletePassword();
     providerValue.deleteEmail();
     providerValue.deleteName();
   } catch (e) {
-    // Catch error display toast...........
+    // Catch error display toast
     Navigator.pop(context);
     switchCaseError(e);
   }

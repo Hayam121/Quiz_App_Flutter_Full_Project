@@ -13,7 +13,7 @@ import '../reusableWidgets/profileSection/provider.dart';
 import '../reusableWidgets/switchCaseLoginError.dart';
 import '../reusableWidgets/toastWidget.dart';
 
-// Login Button Content.....................................
+// Login Button Content
 Widget submitButton() {
   return Container(
     margin: const EdgeInsets.only(top: 10),
@@ -21,13 +21,13 @@ Widget submitButton() {
     child: Consumer<LoginPageProvider>(
       builder: (context, providerValue, child) {
         return buttonContent(providerValue,
-            context); // Button Content See below..................
+            context); // Button Content See below
       },
     ),
   );
 }
 
-// Button Content...................................................
+// Button Content
 Widget buttonContent(providerValue, context) {
   return Consumer<ProfilePageProvider>(
     builder: (context, profileProvider, child) {
@@ -38,13 +38,13 @@ Widget buttonContent(providerValue, context) {
             FocusManager.instance.primaryFocus?.unfocus();
             showAlertDialog(context);
             getValueFromFirebase(providerValue, context,
-                profileProvider); // firebase Activities see below..........
+                profileProvider); // firebase Activities see below
           } else {
             long_flutter_toast("Please fill out all fields to Continue");
           }
         },
         style: submitButtonStyle(),
-        // Button Styling See below..............................
+        // Button Styling See below
         child: Text("Submit",
             style: TextStyle(
                 fontSize: setSize(context, 22), fontWeight: FontWeight.bold)),
@@ -66,47 +66,47 @@ ButtonStyle submitButtonStyle() {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))));
 }
 
-//Function to perform Firebase activities..................................
+//Function to perform Firebase activities
 Future<void> getValueFromFirebase(
     providerValue, context, ProfilePageProvider profileProvider) async {
-  // Create shared preference to set data ......................
+  // Create shared preference to set data
   //SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   try {
-    //SignIn with email password.........
+    //SignIn with email password
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: providerValue.email.trim(), password: providerValue.password);
 
     /* sharedPreferences.setString("userName", firebaseAuth.user!.displayName.toString());
       sharedPreferences.setString("userEmail", firebaseAuth.user!.email.toString());*/
 
-    // Check if the user is Student or faculty by getting data from Database.............
+    // Check if the user is Student or faculty by getting data from Database
     FirebaseFirestore.instance
         .collection("users")
         .doc(providerValue.email.trim())
         .get()
         .then((value1) => value1.data()?.forEach((key, value) {
-              // Check user type and Navigate see below...................
+              // Check user type and Navigate see below
               checkUserTypeAndNavigate(key, value, context);
 
-              // Delete Provider value..................
+              // Delete Provider value
               providerValue.deleteEmail();
               providerValue.deletePassword();
             }));
-    // Show flutter Toast if login Successful.........
+    // Show flutter Toast if login Successful
     short_flutter_toast("Login Successful");
     await getProfileInfo(profileProvider);
   } catch (e) {
-    // Catch error display toast..........................
+    // Catch error display toast
     Navigator.pop(context);
-    switchCaseError(e); //See Reusable Widget..............
+    switchCaseError(e); //See Reusable Widget
   }
 }
 
-// Check user type and Navigate to HomeScreen...........................
+// Check user type and Navigate to HomeScreen
 void checkUserTypeAndNavigate(key, value, context) {
-  // Navigation Check..... if student or Faculty..........................
+  // Navigation Check..... if student or Faculty
   if (key == "userType") {
-    //Set value to shared preferences..................
+    //Set value to shared preferences
 
     value == "0"
         ? {
