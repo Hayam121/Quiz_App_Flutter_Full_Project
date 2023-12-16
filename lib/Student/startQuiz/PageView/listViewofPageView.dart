@@ -5,13 +5,15 @@ import '../../../providers/studentProviders/startQuizProvider.dart';
 import '../../../reusableWidgets/Responsive.dart';
 import '../../../reusableWidgets/createColor.dart';
 
-Widget listViewPageView(answers,context) {
-  return Container(
-    width: ResponsiveWidget.isSmallScreen(context) ? screenWidth(context) : screenWidth(context)/2,
+Widget listViewPageView(answers, context) {
+  return SizedBox(
+    width: ResponsiveWidget.isSmallScreen(context)
+        ? screenWidth(context)
+        : screenWidth(context) / 2,
     child: ListView.builder(
         physics: const ClampingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 4,
+        itemCount: answers.length,
         itemBuilder: (context, itemIndex) {
           return Consumer<StartQuizProvider>(
             builder: (context, providerValue, child) {
@@ -33,7 +35,7 @@ Widget listViewPageView(answers,context) {
                       const SizedBox(width: 8),
                       Expanded(
                           child: Text(
-                        " ${answers[itemIndex].toString()=="null" ? "" : answers[itemIndex]}",
+                        " ${answers[itemIndex].toString() == "null" ? "" : answers[itemIndex]}",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: setSize(context, 17),

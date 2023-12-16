@@ -20,7 +20,6 @@ class _StartQuizState extends State<StartQuiz> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        //appBar: appBarSimpleWithoutBack(context, "Start Quiz"),
         body: Consumer<SnapshotProvider>(
           builder: (context, providerValue, child) {
             return Container(
@@ -56,15 +55,13 @@ class _StartQuizState extends State<StartQuiz> {
   timer() {
     return Consumer<TimerProvider>(
       builder: (context, timerProvider, child) {
-        int mins = (timerProvider.timer / 60).toInt();
+        int mins = timerProvider.timer ~/ 60;
         int sec = (timerProvider.timer % 60).toInt();
         return Container(
             margin: const EdgeInsets.only(top: 50),
             child: Text(
-              timerProvider.timer > 0
-                  ? "${mins} min ${sec} sec left"
-                  : "Times Up",
-              style: TextStyle(fontSize: 30),
+              timerProvider.timer > 0 ? "$mins min $sec sec left" : "Times Up",
+              style: const TextStyle(fontSize: 30),
             ));
       },
     );

@@ -5,7 +5,6 @@ import '../../providers/studentProviders/studentProvider.dart';
 import '../../reusableWidgets/Responsive.dart';
 import '../../reusableWidgets/createColor.dart';
 import '../../reusableWidgets/profileSection/getProfileInfo.dart';
-import '../../reusableWidgets/profileSection/mainPage.dart';
 import '../../reusableWidgets/profileSection/provider.dart';
 import '../quizOfEachTeacher/quizFromEachFaculty.dart';
 
@@ -68,11 +67,13 @@ Widget cardWidget(validData, index, type) {
                     Container(
                       //color: Colors.green,
                       margin: const EdgeInsets.only(bottom: 15, top: 5),
-                      child: Text("Tap to View",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: hexToColor("#6D3233"),
-                              fontWeight: FontWeight.w600)),
+                      child: Text(
+                        "Tap to View",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: hexToColor("#6D3233"),
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ],
                 )
@@ -81,55 +82,57 @@ Widget cardWidget(validData, index, type) {
           ),
           onTap: () async {
             await getProfileInfo(profileProvider);
-            if (profileProvider.qualification == "" ||
-                profileProvider.about == "") {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: const Text("Alert",
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                    elevation: 20,
-                    content: const Text(
-                        "Kindly Update Profile Section to Participate in a Quiz"),
-                    actions: [
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            "Cancel",
-                            style: TextStyle(fontSize: 15),
-                          )),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const ProfilePage(),
-                                ));
-                          },
-                          child: const Text(
-                            "Update",
-                            style: TextStyle(fontSize: 15),
-                          ))
-                    ],
-                  );
-                },
-              );
-            } else {
-              // Set Faculty ID to Provider...............
-              studentProvider.setFacultyEmail(validData?[index].id);
-              studentProvider.setFacultyName(validData?[index]["name"]);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const QuizFromEachFaculty()));
-            }
+            studentProvider.setFacultyEmail(validData?[index].id);
+            studentProvider.setFacultyName(validData?[index]["name"]);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const QuizFromEachFaculty()),
+            );
+            // if (profileProvider.qualification == "" ||
+            //     profileProvider.about == "") {
+            //   showDialog(
+            //     context: context,
+            //     builder: (context) {
+            //       return AlertDialog(
+            //         title: const Text("Alert",
+            //             style: TextStyle(
+            //                 color: Colors.red,
+            //                 fontSize: 20,
+            //                 fontWeight: FontWeight.bold)),
+            //         elevation: 20,
+            //         content: const Text(
+            //             "Kindly Update Profile Section to Participate in a Quiz"),
+            //         actions: [
+            //           TextButton(
+            //               onPressed: () {
+            //                 Navigator.pop(context);
+            //               },
+            //               child: const Text(
+            //                 "Cancel",
+            //                 style: TextStyle(fontSize: 15),
+            //               )),
+            //           TextButton(
+            //               onPressed: () {
+            //                 Navigator.pop(context);
+            //                 Navigator.push(
+            //                     context,
+            //                     MaterialPageRoute(
+            //                       builder: (context) => const ProfilePage(),
+            //                     ));
+            //               },
+            //               child: const Text(
+            //                 "Update",
+            //                 style: TextStyle(fontSize: 15),
+            //               ))
+            //         ],
+            //       );
+            //     },
+            //   );
+            // } else {
+            //   // Set Faculty ID to Provider...............
+
+            // }
           },
         );
       },
