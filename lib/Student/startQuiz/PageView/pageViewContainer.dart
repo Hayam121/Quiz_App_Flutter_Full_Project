@@ -5,12 +5,16 @@ import 'contentOfPageView.dart';
 import 'listViewofPageView.dart';
 import 'submitButtonOfPageView.dart';
 
-Widget pageViewContainer(snapshot, index, _pagecontroller, context) {
+Widget pageViewContainer(snapshot, index, pagecontroller, context) {
   List answers = [];
   answers.add(snapshot.data?.docs[index]["Answer1"]);
   answers.add(snapshot.data?.docs[index]["Answer2"]);
-  answers.add(snapshot.data?.docs[index]["Answer3"]);
-  answers.add(snapshot.data?.docs[index]["Answer4"]);
+  if (snapshot.data?.docs[index]["Answer3"] != "") {
+    answers.add(snapshot.data?.docs[index]["Answer3"]);
+  }
+  if (snapshot.data?.docs[index]["Answer4"] != "") {
+    answers.add(snapshot.data?.docs[index]["Answer4"]);
+  }
   answers.shuffle();
   return SingleChildScrollView(
     child: Container(
@@ -21,9 +25,9 @@ Widget pageViewContainer(snapshot, index, _pagecontroller, context) {
             questionNumberContainer(context, index, snapshot),
             dividerLineContainer(context),
             questionContainer(context, index, snapshot),
-            listViewPageView(answers,context),
+            listViewPageView(answers, context),
             submitButtonPageView(
-                context, _pagecontroller, answers, snapshot, index),
+                context, pagecontroller, answers, snapshot, index),
           ],
         )),
   );
