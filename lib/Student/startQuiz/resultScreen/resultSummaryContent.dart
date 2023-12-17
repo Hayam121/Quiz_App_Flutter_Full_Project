@@ -96,45 +96,8 @@ Widget resultContainer(result, context) {
   );
 }
 
-Widget screenshot(studentValue, quizValue, result, sc_controller, context) {
-  return InkWell(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          FontAwesomeIcons.shareNodes,
-          color: Colors.blue,
-          size: setSize(context, 30),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "Share Your Score",
-            style: TextStyle(
-                fontSize: setSize(context, 20),
-                color: Colors.blue,
-                fontWeight: FontWeight.w600),
-          ),
-        )
-      ],
-    ),
-    onTap: () async {
-      final image = await sc_controller.captureFromWidget(
-          shareWidget(result, studentValue, quizValue, context));
-      saveAndShare(image);
-    },
-  );
-}
 
-void saveAndShare(Uint8List bytes) async {
-  final directory = await getApplicationDocumentsDirectory();
-  final image = File("${directory.path}/flutter.png");
-  image.writeAsBytesSync(bytes);
-  XFile imageFileAsXFile = XFile(image.path);
-  await Share.shareXFiles([imageFileAsXFile],
-      text:
-          "Hi, I have Participated in Quiz. Here is My Score. Let's Download and Learn.");
-}
+
 
 Widget homePageNaviagte(context) {
   return IconButton(

@@ -26,7 +26,7 @@ class TopBarFaculty extends StatelessWidget {
         children: [
           Container(
               margin: const EdgeInsets.only(left: 35),
-              child: const Text("Champ Quizz",
+              child: const Text("Quiz App",
                   style: TextStyle(color: Colors.white, fontSize: 25))),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

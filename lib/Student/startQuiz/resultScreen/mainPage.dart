@@ -36,8 +36,6 @@ class _ResultSummaryState extends State<ResultSummary> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     shareWidget(result, studentValue, quizValue, context),
-                    screenshot(studentValue, quizValue, result, sc_controller,
-                        context),
                     homePageNaviagte(context),
                   ],
                 ),
