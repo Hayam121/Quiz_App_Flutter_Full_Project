@@ -22,10 +22,9 @@ class _StudentResultState extends State<StudentResult> {
     return Scaffold(
         appBar: ResponsiveWidget.isLargeScreen(context)
             ? PreferredSize(
-            preferredSize: Size(screenWidth(context), 70),
-            child: const TopBarFaculty())
+                preferredSize: Size(screenWidth(context), 70),
+                child: const TopBarFaculty())
             : appBarSimple(context, "Score"),
-
         body: Center(
           child: SizedBox(
             child: Center(
@@ -53,7 +52,7 @@ class _StudentResultState extends State<StudentResult> {
                         ));
                   } else {
                     final validData = snapshot.data?.docs
-                        .where((d) => d['userType'] == "0" && d['about'] != "" && d["qualification"] != "")
+                        .where((d) => d['userType'] == "0")
                         .toList();
                     return ResponsiveWidget.isSmallScreen(context)
                         ? ListView.builder(
