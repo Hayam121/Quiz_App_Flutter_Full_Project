@@ -89,50 +89,6 @@ Widget cardWidget(validData, index, type) {
               MaterialPageRoute(
                   builder: (context) => const QuizFromEachFaculty()),
             );
-            // if (profileProvider.qualification == "" ||
-            //     profileProvider.about == "") {
-            //   showDialog(
-            //     context: context,
-            //     builder: (context) {
-            //       return AlertDialog(
-            //         title: const Text("Alert",
-            //             style: TextStyle(
-            //                 color: Colors.red,
-            //                 fontSize: 20,
-            //                 fontWeight: FontWeight.bold)),
-            //         elevation: 20,
-            //         content: const Text(
-            //             "Kindly Update Profile Section to Participate in a Quiz"),
-            //         actions: [
-            //           TextButton(
-            //               onPressed: () {
-            //                 Navigator.pop(context);
-            //               },
-            //               child: const Text(
-            //                 "Cancel",
-            //                 style: TextStyle(fontSize: 15),
-            //               )),
-            //           TextButton(
-            //               onPressed: () {
-            //                 Navigator.pop(context);
-            //                 Navigator.push(
-            //                     context,
-            //                     MaterialPageRoute(
-            //                       builder: (context) => const ProfilePage(),
-            //                     ));
-            //               },
-            //               child: const Text(
-            //                 "Update",
-            //                 style: TextStyle(fontSize: 15),
-            //               ))
-            //         ],
-            //       );
-            //     },
-            //   );
-            // } else {
-            //   // Set Faculty ID to Provider...............
-
-            // }
           },
         );
       },

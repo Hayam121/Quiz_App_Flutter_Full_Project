@@ -1,8 +1,6 @@
 // String for Images.......................................
 const String appLogo = "assets/images/appLogo.png";
-const String userImg = "assets/images/user_img.png";
 const String splashImg = "assets/images/splash_Image.png";
-
 const String userDefaultImage =
     "https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&ga=GA1.2.825316313.1674289475&semt=ais";
 // String for About Us Content........................................

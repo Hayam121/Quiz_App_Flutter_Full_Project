@@ -90,21 +90,6 @@ AppBar appBarAbout(context) {
             radius: 85,
           ),
         )),
-    actions: [
-      Container(
-          padding: EdgeInsets.only(
-              right: setSize(context, 20), top: setSize(context, 10)),
-          child: IconButton(
-              onPressed: () async {
-                String mailto =
-                    "mailto:sumitsinha401@gmail.com?subject=Query Regarding Quiz Application";
-                await launchUrlString(mailto,
-                    mode: LaunchMode.externalApplication);
-              },
-              icon: Icon(
-                FontAwesomeIcons.addressCard,
-                size: setSize(context, 30),
-              )))
-    ],
+  
   );
 }

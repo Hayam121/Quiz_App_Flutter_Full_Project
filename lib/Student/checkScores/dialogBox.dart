@@ -25,9 +25,7 @@ dialogBoxShow(AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
             style: TextStyle(
                 fontSize: setSize(context, 18), fontWeight: FontWeight.w500),
             textAlign: TextAlign.center),
-        icon: Image.network(
-            "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=$title\n\nDescription: $desc \n\nFaculty Name : $faculty \n\nMarks: $marks \n\nResult: $result"),
-        content: Column(
+              content: Column(
           children: [
             Container(
               margin: EdgeInsets.only(bottom: setSize(context, 12)),

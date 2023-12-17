@@ -12,7 +12,7 @@ Text alertDialogTitle(context) {
 Widget alertDialogContent(context) {
   return Consumer<StudentProvider>(builder: (context, providerValue, child) {
     return Text(
-        "\u2022 Welcome to Online ${providerValue.quizTitle} \n\u2022 Exam has Total ${providerValue.totalQuestions} Questions.\n\u2022 Total Time for the Exam is ${int.parse(providerValue.totalQuestions)} Minutes \n\u2022 Negative Marking : No \n\u2022 Each Question is Compulsory to Attend \n\u2022 You Can't Navigate back to previous Question.",
+        "\u2023 Welcome to Online ${providerValue.quizTitle} \n\u2022 Exam has Total ${providerValue.totalQuestions} Questions.\n\u2022 Total Time for the Exam is ${int.parse(providerValue.totalQuestions)} Minutes \n\u2022 Negative Marking : No \n\u2022 Each Question is Compulsory to Attend \n\u2022 You Can't Navigate back to previous Question.",
         textAlign: TextAlign.start,
         style: TextStyle(
             wordSpacing: 1, height: 1.5, fontSize: setSize(context, 15)));
