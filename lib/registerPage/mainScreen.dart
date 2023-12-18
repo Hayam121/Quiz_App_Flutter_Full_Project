@@ -6,7 +6,7 @@ import 'submitButton.dart';
 import 'textFields.dart';
 import 'toggleButtons.dart';
 
-class Register extends StatefulWidget {
+class Register extends StatefulWidget { // represents the screen for the user register 
   const Register({Key? key}) : super(key: key);
 
   @override
@@ -18,11 +18,11 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+
         alignment: Alignment.center,
         width: screenWidth(context),
         height: screenHeight(context),
         decoration: pageDecoration(),
-        /// See Below.............................
         child: SingleChildScrollView(child: bodyContainer()),
       ),
     );
@@ -39,7 +39,6 @@ class _RegisterState extends State<Register> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          /// See Below
           registerText(),
           toggleForStudentFaculty(),
           textFieldName(),
