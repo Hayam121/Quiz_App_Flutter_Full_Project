@@ -2,7 +2,7 @@
     package="com.example.flutter_project">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="Champ Quizz"
+        android:label="QUIZ APP"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
