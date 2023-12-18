@@ -25,11 +25,10 @@ Widget buttonContent(providerValue, context) {
         if (providerValue.email.trim() != "" &&
             providerValue.password != "" &&
             providerValue.name.trim() != "") {
-          FocusManager.instance.primaryFocus?.unfocus(); // To remove Keyboard
-          showAlertDialog(context); // To show Alert Loading Dialog Box
+          showAlertDialog(context); 
 
           setDataToFirebase(providerValue,
-              context); // Set data to Firebase See Below.............
+              context); 
         } else {
           long_flutter_toast("Please fill out all fields to Continue");
         }
