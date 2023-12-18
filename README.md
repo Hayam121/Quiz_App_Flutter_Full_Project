@@ -1,4 +1,4 @@
-# Champ Quizz
+# Quizz App
 
 A Quiz App
 
