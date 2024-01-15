@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 Widget loginText(context) {
   return Container(
     decoration: BoxDecoration(
-        color: Color.fromARGB(255, 173, 20, 158),
+        color: const Color.fromARGB(255, 173, 20, 158),
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(20)),
     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),

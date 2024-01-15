@@ -12,7 +12,7 @@ AppBar appBarSimple(context, title) {
     title: Text(title),
     centerTitle: true,
     elevation: 10,
-    backgroundColor: Color.fromARGB(255, 152, 101, 145),
+    backgroundColor: const Color.fromARGB(255, 152, 101, 145),
   );
 }
 
@@ -22,7 +22,7 @@ AppBar appBarSimpleWithoutBack(context, title) {
     centerTitle: true,
     elevation: 10,
     automaticallyImplyLeading: false,
-    backgroundColor: Color.fromARGB(255, 152, 101, 145),
+    backgroundColor: const Color.fromARGB(255, 152, 101, 145),
   );
 }
 
@@ -31,7 +31,7 @@ AppBar appBarCreate(context, title) {
     title: Text(title),
     centerTitle: true,
     elevation: 10,
-    backgroundColor: Color.fromARGB(255, 152, 101, 145),
+    backgroundColor: const Color.fromARGB(255, 152, 101, 145),
     actions: [
       addQuestionsButton(context),
     ],
@@ -46,7 +46,7 @@ AppBar appBarWithLogout(context, title) {
     actions: [
       containerLogout(context),
     ],
-    backgroundColor: Color.fromARGB(255, 152, 101, 145),
+    backgroundColor: const Color.fromARGB(255, 152, 101, 145),
   );
 }
 
@@ -68,7 +68,7 @@ Container containerLogout(context) {
 AppBar appBarAbout(context) {
   return AppBar(
     elevation: 20,
-    backgroundColor: Color.fromARGB(255, 152, 101, 145),
+    backgroundColor: const Color.fromARGB(255, 152, 101, 145),
     flexibleSpace: Container(
         decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
